@@ -1,0 +1,28 @@
+{
+  "name": "support_ticket_software",
+  "version": "1.0.0",
+  "description": "ACSG-545 project",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cudzichG-sxu/ACSG-545-GroupB-SupportTicketSoftware.git"
+  },
+  "author": "Greg, Luis, David",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "bootstrap": "^4.5.2",
+    "connect-history-api-fallback": "^1.6.0",
+    "express": "^4.17.1",
+    "jquery": "^3.5.1",
+    "mongoose": "^5.10.9",
+    "socket.io": "^2.3.0"
+  },
+  "bugs": {
+    "url": "https://github.com/cudzichG-sxu/ACSG-545-GroupB-SupportTicketSoftware/issues"
+  },
+  "homepage": "https://github.com/cudzichG-sxu/ACSG-545-GroupB-SupportTicketSoftware#readme"
+}
