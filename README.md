@@ -8,7 +8,7 @@ To get the project running:
 
 3. in the terminal located in the Webstrom IDE, run the "npm install" command in the ACSG-545-GroupB-SupportTicketSoftware directory to download the dependencies for server-side tasks
 
-4. cd into the SupportTicketSoftware directory
+4. cd into the ACSG-545-GroupB-SupportTicketSoftware\SupportTicketSoftware directory
 
 5. run "npm install" again to download the dependancies for the front-end portion
 
