@@ -16,6 +16,6 @@ To get the project running:
 
 7. Once ng serve is done compiling in the terminal, you will get prompted to visit http://localhost:4200/ * 
 
-8. Click on this link or enter the url in browser of choice, this will then provide you with the home page layout
+8. Click on the link that is in the terminal or enter the url in browser of choice, this will then provide you with the home page layout
 
 9. you can visit the dashboard by clicking "dashboard" on the navigation bar, which will act as the user home page for the software.
