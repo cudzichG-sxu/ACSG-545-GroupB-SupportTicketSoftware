@@ -105,3 +105,4 @@ dist
 
 #workspace.xml file constantly has unnecessary changes
 .idea/workspace.xml
+.idea/workspace.xml
