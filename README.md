@@ -4,7 +4,7 @@ To get the project running:
 
 1. Download Webstorm from Jetbrains
 
-2. open the project in Webstorm
+2. Unzip the file from canvas and place it in any directory, then open the file in Webstorm to view the project
 
 3. in the terminal located in the Webstrom IDE, run the "npm install" command in the ACSG-545-GroupB-SupportTicketSoftware directory to download the dependencies for server-side tasks
 
