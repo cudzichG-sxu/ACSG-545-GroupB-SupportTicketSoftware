@@ -29,7 +29,7 @@ export interface ticketObject {
   Status: string;
   Date: string;
   Priority: string;
-  comments: string;
+  comments: string[];
 }
 const ticketData: ticketObject[] = [
   {
@@ -38,13 +38,13 @@ const ticketData: ticketObject[] = [
     Status: "In Progress",
     Date: "2021-03-01",
     Priority: "LOW",
-    comments: "Why is this still not done!"
+    comments: ["Hubert Watson: Why is this still not done!", "David Lee: This ticket has been marked low priority, but I'll have it done this week!"]
   }, {
     Ticket: "Main dashboard stuck on loading",
     Assigned_To: "Tommy Trumpet",
     Status: "Complete",
     Date: "2020-12-20",
     Priority: "HIGH",
-    comments: "It looks like this is due to the isUserInteraction boolean being set to false, this is fix!"
+    comments: ["Tommy Trumpet: It looks like this is due to the isUserInteraction boolean being set to false, this is fix!", "Ashley Parkson: Thanks Tommy!", "Tommy Trumpet: No problem!"]
   }
 ];
