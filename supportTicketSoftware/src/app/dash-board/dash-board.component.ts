@@ -42,7 +42,7 @@ const ticketData: ticketObject[] = [
   }, {
     Ticket: "Main dashboard stuck on loading",
     Assigned_To: "Tommy Trumpet",
-    Status: "Completed!!",
+    Status: "Completed!",
     Date: "2020-12-20",
     Priority: "HIGH",
     comments: ["Tommy Trumpet: It looks like this is due to the isUserInteraction boolean being set to false, this is fix!", "Ashley Parkson: Thanks Tommy!", "Tommy Trumpet: No problem!"]
