@@ -12,11 +12,14 @@ import {MatSidenavModule} from "@angular/material/sidenav";
 import {MatIconModule} from "@angular/material/icon";
 import {MatListModule} from "@angular/material/list";
 import {MatButtonModule} from "@angular/material/button";
-import { MatTableModule } from '@angular/material/table'
+import { MatTableModule } from '@angular/material/table';
+import { MainNavComponent } from './main-nav/main-nav.component';
+import { LayoutModule } from '@angular/cdk/layout'
 @NgModule({
   declarations: [
     AppComponent,
-    DashBoardComponent
+    DashBoardComponent,
+    MainNavComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +33,7 @@ import { MatTableModule } from '@angular/material/table'
     MatTableModule,
     MatTabsModule,
     MatButtonModule,
-    FlexLayoutModule, MatToolbarModule, MatTabsModule, MatSidenavModule, MatIconModule, MatListModule
+    FlexLayoutModule, MatToolbarModule, MatTabsModule, MatSidenavModule, MatIconModule, MatListModule, LayoutModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,26 @@
+.sidenav {
+  width: 200px;
+  box-shadow: 3px 0 6px rgba(0,0,0,0.24);
+  background-color: white;
+}
+
+.sidenav-container {
+  height: 100%;
+}
+
+.mat-toolbar.mat-primary {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background-color: #007bff;
+  color: #fff;
+}
+
+.menu-spacer {
+  flex: 1 1 auto;
+}
+
+.mat-icon-button{
+  background: transparent;
+  color: white;
+}
