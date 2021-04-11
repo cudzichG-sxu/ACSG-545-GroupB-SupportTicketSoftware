@@ -36,24 +36,18 @@ export class DashBoardComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.clientServiceActual.getAllClients().subscribe(returnClients => {
-      this.returnedClients = returnClients;
-    });
-
-    //returns tickets based on clientId, so that ONLY tickets that the client returned are pulled.
-    this.ticketServiceActual.getAllTickets(this.clientId).subscribe(returnedTickets => {
-      this.returnedTickets = returnedTickets;
-
-    });
+    // this.clientServiceActual.getAllClients().subscribe(returnClients => {
+    //   this.returnedClients = returnClients;
+    // });
+    //
+    // //returns tickets based on clientId, so that ONLY tickets that the client returned are pulled.
+    // this.ticketServiceActual.getAllTickets(this.clientId).subscribe(returnedTickets => {
+    //   this.returnedTickets = returnedTickets;
+    //
+    // });
   }
 
-  saveTicketItem(): void {
-    this.ticketServiceActual.create(this.ticketPkg).subscribe(savedTaskItem => {
-      this.returnedTickets.push(savedTaskItem);
 
-      this.ticketPkg = [];
-    });
-  }
 
   deleteTicket(ticketMarkedForDeletion, index): void {
     // tslint:disable-next-line:no-shadowed-variable

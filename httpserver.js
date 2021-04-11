@@ -25,7 +25,8 @@ mongoose.connection.once('open', function() {
         if (savePkg.body === undefined) {
             console.log("THE DATA IS EMPTY!");
         } else {
-            let details = JSON.parse(savePkg.body.savePkg);
+            let details = savePkg.body.savePkg;
+            console.log(details.description);
 
             var newTicket = new ticketModel({
                 description: details.description,

@@ -4,9 +4,9 @@ var Schema = mongoose.Schema;
 var ticketSchema = new Schema({
     description: {type: String, required: true,},
     ticketDate: {type: String, required: true},
-    assignee: {type: Map, required: true},
+    assignee: {type: Array, required: true},
     clientId: {type: String, required: true},
-    assigner: {type: Map, required: true},
+    assigner: {type: Array, required: true},
     status: {type: String},
     comments: {type: Map},
 }, {collection: 'tickets'});

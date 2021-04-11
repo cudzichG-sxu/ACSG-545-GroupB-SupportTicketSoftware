@@ -12,11 +12,14 @@ import {MatSidenavModule} from "@angular/material/sidenav";
 import {MatIconModule} from "@angular/material/icon";
 import {MatListModule} from "@angular/material/list";
 import {MatButtonModule} from "@angular/material/button";
-import { MatTableModule } from '@angular/material/table'
+import { MatTableModule } from '@angular/material/table';
+import { HttpClientModule } from '@angular/common/http';
+import { CreateTicketComponent } from './create-ticket/create-ticket.component';
 @NgModule({
   declarations: [
     AppComponent,
-    DashBoardComponent
+    DashBoardComponent,
+    CreateTicketComponent
   ],
   imports: [
     BrowserModule,
@@ -29,6 +32,7 @@ import { MatTableModule } from '@angular/material/table'
     MatIconModule,
     MatTableModule,
     MatTabsModule,
+    HttpClientModule,
     MatButtonModule,
     FlexLayoutModule, MatToolbarModule, MatTabsModule, MatSidenavModule, MatIconModule, MatListModule
   ],
