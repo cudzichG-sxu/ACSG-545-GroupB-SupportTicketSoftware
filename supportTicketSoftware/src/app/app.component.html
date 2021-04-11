@@ -1,7 +1,26 @@
-<main-nav>
-  <nav mat-tab-nav-bar>
-    <a mat-tab-link [routerLink]="'dash-board'" >Dashboard</a>
-  </nav>
-
-  <router-outlet></router-outlet>
-</main-nav>
+<mat-sidenav-container fxFlexFill class="sidenav-container">
+  <mat-sidenav
+    #sidenav
+    class="sidenav"
+    fixedInViewport="true">
+    <mat-toolbar color="primary"><h1>Menu</h1></mat-toolbar>
+    <mat-nav-list>
+      <a href="#" mat-list-item [routerLink]="'create-ticket'">Create Ticket</a>
+      <a href="#" mat-list-item>Account</a>
+      <a href="#" mat-list-item>About</a>
+      <a href="#" mat-list-item>Log Out</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content fxFlexFill>
+    <mat-toolbar color="primary">
+      <button mat-icon-button (click)="sidenav.toggle()" fxShow="true">
+        <span class="material-icons">menu</span>
+      </button>
+      <h1 style="padding-left: 20px">LGD Analytics</h1>
+    </mat-toolbar>
+    <nav mat-tab-nav-bar>
+      <a mat-tab-link [routerLink]="'dash-board'" >Dashboard</a>
+    </nav>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+<router-outlet></router-outlet>

@@ -1,0 +1,10 @@
+<h1>Create New Ticket</h1>
+<div>
+  <input class='main1' type='text'id='Client Name' placeholder='Client Name' [(ngModel)]="newTicketClientName" (keyup.enter)="keytab($event)">
+  <br>
+  <input class='main1' type='text'id='Description' placeholder='Provide a brief description of your issue' [(ngModel)]="ticketDescription" (keyup.enter)="keytab($event)">
+  <br>
+  <input class='main1' type='text'id='Assignee' placeholder='Who do you want to assign this ticket to?' [(ngModel)]="ticketAssignees" (keyup.enter)="keytab($event)">
+  <br>
+  <input type="button" class='main3' value ='Submit Ticket' (click)="saveTicketItem()" >
+</div>

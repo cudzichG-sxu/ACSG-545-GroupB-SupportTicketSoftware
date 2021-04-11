@@ -14,7 +14,13 @@
       <div class="example-element-detail"
            [@detailExpand]="ticket == expandedElement ? 'expanded' : 'collapsed'">
         <div class="example-element-description">
-          <span>Comment: </span>{{ticket.comments}}
+          <span>Comments: </span>
+          <br>
+          <ng-container *ngFor="let comment of ticket.comments">
+            {{comment}}
+            <br>
+            <br>
+          </ng-container>
         </div>
       </div>
     </td>

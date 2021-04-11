@@ -13,13 +13,13 @@ import {MatIconModule} from "@angular/material/icon";
 import {MatListModule} from "@angular/material/list";
 import {MatButtonModule} from "@angular/material/button";
 import { MatTableModule } from '@angular/material/table';
-import { MainNavComponent } from './main-nav/main-nav.component';
-import { LayoutModule } from '@angular/cdk/layout'
+import { HttpClientModule } from '@angular/common/http';
+import { CreateTicketComponent } from './create-ticket/create-ticket.component';
 @NgModule({
   declarations: [
     AppComponent,
     DashBoardComponent,
-    MainNavComponent
+    CreateTicketComponent
   ],
   imports: [
     BrowserModule,
@@ -32,8 +32,9 @@ import { LayoutModule } from '@angular/cdk/layout'
     MatIconModule,
     MatTableModule,
     MatTabsModule,
+    HttpClientModule,
     MatButtonModule,
-    FlexLayoutModule, MatToolbarModule, MatTabsModule, MatSidenavModule, MatIconModule, MatListModule, LayoutModule
+    FlexLayoutModule, MatToolbarModule, MatTabsModule, MatSidenavModule, MatIconModule, MatListModule
   ],
   providers: [],
   bootstrap: [AppComponent]
