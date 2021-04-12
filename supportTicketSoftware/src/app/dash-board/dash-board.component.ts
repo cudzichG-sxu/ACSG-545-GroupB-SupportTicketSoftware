@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import {TicketItemsService} from '../_.services/ticket-items.service';
 import {ClientItemsService} from '../_.services/client-items.service';
-
+import { Router } from '@angular/router';
 import {animate, state, style, transition, trigger} from '@angular/animations';
+import {DataHandlerService} from '../_.services/data-handler.service';
+
 @Component({
   selector: 'app-dash-board',
   templateUrl: './dash-board.component.html',
@@ -17,23 +19,22 @@ import {animate, state, style, transition, trigger} from '@angular/animations';
 })
 
 export class DashBoardComponent implements OnInit {
-  columnsToDisplay = ['Ticket', 'Assigned_To', 'Status', 'Date', 'Priority'];
-  dataSource = ticketData;
+  columnsToDisplay = ['description', 'assignee', 'ticketDate', 'status'];
+  public ticketData;
  expandedElement: ticketObject | null;
 
 
- public returnedTickets;
  public clientId;
  //save pkg for tickets, must include: description, ticketDate, assignee, clientId, assigner, status, comments
  public ticketPkg;
  public newClientItem;
  public returnedClients;
-
   constructor(private ticketServiceActual: TicketItemsService,
-              private clientServiceActual: ClientItemsService) {
+              private clientServiceActual: ClientItemsService,
+              private router: Router,
+              private dataHandler: DataHandlerService) {
 
   }
-
 
   ngOnInit(): void {
     // this.clientServiceActual.getAllClients().subscribe(returnClients => {
@@ -41,13 +42,21 @@ export class DashBoardComponent implements OnInit {
     // });
     //
     // //returns tickets based on clientId, so that ONLY tickets that the client returned are pulled.
-    // this.ticketServiceActual.getAllTickets(this.clientId).subscribe(returnedTickets => {
-    //   this.returnedTickets = returnedTickets;
-    //
-    // });
+    this.clientId = "test123";
+    this.ticketServiceActual.getAllTickets(this.clientId).subscribe(returnedTickets => {
+      console.log(returnedTickets);
+      this.ticketData = returnedTickets;
+
+    });
   }
 
-
+  goToPage(pageName:string) {
+    this.dataHandler.clientId = "test123";
+    this.dataHandler.clientName = "Green Garden LLC.";
+    sessionStorage.setItem('currentClientId', "test123");
+    sessionStorage.setItem('currentClientName', "Green Garden LLC.");
+    this.router.navigate([`${pageName}`]);
+  }
 
   deleteTicket(ticketMarkedForDeletion, index): void {
     // tslint:disable-next-line:no-shadowed-variable
@@ -55,55 +64,36 @@ export class DashBoardComponent implements OnInit {
 
       // tslint:disable-next-line:triple-equals
       if (index != -1) {
-        this.returnedTickets.splice(index, 1);
+        this.ticketData.splice(index, 1);
       }
     });
   }
 
-  saveNewClient(): void {
-    this.clientServiceActual.create(this.newClientItem).subscribe(saveProjectItem => {
-      this.returnedClients.push(saveProjectItem);
-      // clears out text field on page for cleaner UI
-      this.newClientItem = '';
-    });
-  }
-
-  deleteClient(clientIdMarked, index): void {
-    // tslint:disable-next-line:no-shadowed-variable
-    this.clientServiceActual.delete(clientIdMarked).subscribe(projectIdMarked => {
-
-      // tslint:disable-next-line:triple-equals
-      if (index != -1) {
-        this.returnedClients.splice(index, 1);
-      }
-    });
-  }
+//might add these later, due to time constraints, cannot add these in now.
+  // saveNewClient(): void {
+  //   this.clientServiceActual.create(this.newClientItem).subscribe(saveProjectItem => {
+  //     this.returnedClients.push(saveProjectItem);
+  //     // clears out text field on page for cleaner UI
+  //     this.newClientItem = '';
+  //   });
+  // }
+  //
+  // deleteClient(clientIdMarked, index): void {
+  //   // tslint:disable-next-line:no-shadowed-variable
+  //   this.clientServiceActual.delete(clientIdMarked).subscribe(projectIdMarked => {
+  //
+  //     // tslint:disable-next-line:triple-equals
+  //     if (index != -1) {
+  //       this.returnedClients.splice(index, 1);
+  //     }
+  //   });
+  // }
 }
 
 export interface ticketObject {
-  Ticket: string;
-  Assigned_To: string;
-  Status: string;
-  Date: string;
-  Priority: string;
-  comments: string[];
+  description: string;
+  assignee: string;
+  ticketDate: string;
+  status: string;
+  comments: [];
 }
-
-//remove once tickets are being pulled via server side
-const ticketData: ticketObject[] = [
-  {
-    Ticket: "Finance page crashing on segue",
-    Assigned_To: "David Lee",
-    Status: "In Progress",
-    Date: "2021-03-01",
-    Priority: "LOW",
-    comments: ["Hubert Watson: Why is this still not done!", "David Lee: This ticket has been marked low priority, but I'll have it done this week!"]
-  }, {
-    Ticket: "Main dashboard stuck on loading",
-    Assigned_To: "Tommy Trumpet",
-    Status: "Completed!!",
-    Date: "2020-12-20",
-    Priority: "HIGH",
-    comments: ["Tommy Trumpet: It looks like this is due to the isUserInteraction boolean being set to false, this is fix!", "Ashley Parkson: Thanks Tommy!", "Tommy Trumpet: No problem!"]
-  }
-];
