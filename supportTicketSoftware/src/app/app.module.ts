@@ -17,6 +17,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { CreateTicketComponent } from './create-ticket/create-ticket.component';
 import { MainNavComponent } from './main-nav/main-nav.component';
 import { LayoutModule } from '@angular/cdk/layout'
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {MatSelectModule} from "@angular/material/select";
+import { MatMenuModule } from "@angular/material/menu";
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,6 +32,7 @@ import { LayoutModule } from '@angular/cdk/layout'
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    MatMenuModule,
     MatToolbarModule,
     MatSidenavModule,
     MatListModule,
@@ -37,7 +42,7 @@ import { LayoutModule } from '@angular/cdk/layout'
     MatTabsModule,
     HttpClientModule,
     MatButtonModule,
-    FlexLayoutModule, MatToolbarModule, MatTabsModule, MatSidenavModule, MatIconModule, MatListModule, LayoutModule
+    FlexLayoutModule, MatToolbarModule, MatTabsModule, MatSidenavModule, MatIconModule, MatListModule, LayoutModule, MatFormFieldModule, MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]

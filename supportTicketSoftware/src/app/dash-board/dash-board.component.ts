@@ -19,7 +19,7 @@ import {DataHandlerService} from '../_.services/data-handler.service';
 })
 
 export class DashBoardComponent implements OnInit {
-  columnsToDisplay = ['description', 'assignee', 'ticketDate', 'status', 'priority'];
+  columnsToDisplay = ['description', 'assignee', 'ticketDate', 'status'];
   public ticketData;
  expandedElement: ticketObject | null;
 
@@ -30,6 +30,7 @@ export class DashBoardComponent implements OnInit {
  public newClientItem;
  public returnedClients;
  public newComment;
+ public priorityLevel;
   constructor(private ticketServiceActual: TicketItemsService,
               private clientServiceActual: ClientItemsService,
               private router: Router,
@@ -44,6 +45,7 @@ export class DashBoardComponent implements OnInit {
     //
     // //returns tickets based on clientId, so that ONLY tickets that the client returned are pulled.
     this.clientId = "test123";
+    this.priorityLevel = ["HIGH", "LOW", "AVERAGE"]
     this.ticketServiceActual.getAllTickets(this.clientId).subscribe(returnedTickets => {
       this.ticketData = returnedTickets;
 
@@ -110,6 +112,5 @@ export interface ticketObject {
   assignee: string;
   ticketDate: string;
   status: string;
-  priority: string;
   comments: [];
 }
