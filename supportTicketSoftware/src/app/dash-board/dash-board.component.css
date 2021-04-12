@@ -1,9 +1,12 @@
 table {
   width: 100%;
+  background: white;
+  font-family: sans-serif;
 }
 
 tr.example-detail-row {
   height: 0;
+  background: whitesmoke;
 }
 
 tr.example-element-row:not(.example-expanded-row):hover {
@@ -35,4 +38,34 @@ tr.example-element-row:not(.example-expanded-row):active {
 
 .example-element-description-attribution {
   opacity: 0.5;
+}
+
+h2 {
+  padding: 10px;
+  color: white;
+}
+
+.ticket-container {
+  margin: 0 20px 20px 20px;
+  background: #007bff;
+  border-radius: 20px;
+  padding: 5px;
+}
+
+button {
+  margin: 10px auto 5px;
+  width: 20%;
+  height: 40px;
+  background: whitesmoke;
+  font-weight: bold;
+}
+
+span {
+  font-weight: bold;
+}
+
+.main1 {
+  width: 200%;
+  height: 40px;
+  padding-left: 10px;
 }

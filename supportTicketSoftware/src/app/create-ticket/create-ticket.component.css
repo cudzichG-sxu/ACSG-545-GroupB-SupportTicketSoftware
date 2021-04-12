@@ -1,0 +1,41 @@
+.form-container {
+  width: 60%;
+  margin: auto;
+  padding: 20px;
+  background: #007bff;
+  border-radius: 20px;
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+h1 {
+  color: white;
+  text-align: center;
+  margin: auto auto 10px;
+}
+
+.main1 {
+  width: 90%;
+  height: 40px;
+  margin: auto auto 20px;
+}
+
+input {
+  padding-left: 10px;
+}
+
+body {
+  background: lightskyblue;
+}
+
+button {
+  margin: 10px auto 5px;
+  width: 20%;
+  height: 40px;
+  background: whitesmoke;
+  font-weight: bold;
+}

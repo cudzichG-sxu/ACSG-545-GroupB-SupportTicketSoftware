@@ -1,12 +1,10 @@
-<h1>Create New Ticket</h1>
-<div>
-  <input readonly class='main1' type='text'id='Client Name' placeholder='Client Name' [(ngModel)]="newTicketClientName" (keyup.enter)="keytab($event)">
-  <br>
-  <input class='main1' type='text'id='Description' placeholder='Provide a brief description of your issue' [(ngModel)]="ticketDescription" (keyup.enter)="keytab($event)">
-  <br>
-  <input class='main1' type='text'id='Assignee' placeholder='Who do you want to assign this ticket to?' [(ngModel)]="ticketAssignees" (keyup.enter)="keytab($event)">
-  <br>
-  <input class='main1' type='text'id='Comments' placeholder='Please provide any comments' [(ngModel)]="initialComment" (keyup.enter)="keytab($event)">
-  <br>
-  <input type="button" class='main3' value ='Submit Ticket' (click)="saveTicketItem()" >
+<div class="form-container">
+  <h1>Create New Ticket</h1>
+  <div class="input-container">
+    <input readonly class='main1' type='text' id='Client Name' placeholder='Client Name' [(ngModel)]="newTicketClientName" (keyup.enter)="keytab($event)">
+    <input class='main1' type='text' id='Description' placeholder='Provide a brief description of your issue' [(ngModel)]="ticketDescription" (keyup.enter)="keytab($event)">
+    <input class='main1' type='text' id='Assignee' placeholder='Who do you want to assign this ticket to?' [(ngModel)]="ticketAssignees" (keyup.enter)="keytab($event)">
+    <input class='main1' type='text' id='Comments' placeholder='Please provide any comments' [(ngModel)]="initialComment" (keyup.enter)="keytab($event)">
+    <button mat-raised-button class='main3' value ='Submit Ticket' (click)="saveTicketItem()">Submit</button>
+  </div>
 </div>
