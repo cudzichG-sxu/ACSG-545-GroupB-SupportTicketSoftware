@@ -1,21 +1,28 @@
 import { Component, OnInit } from '@angular/core';
 import {TicketItemsService} from '../_.services/ticket-items.service';
 import {formatDate} from '@angular/common';
+import {DataHandlerService} from '../_.services/data-handler.service';
 
 @Component({
   selector: 'app-create-ticket',
   templateUrl: './create-ticket.component.html',
   styleUrls: ['./create-ticket.component.css']
 })
+
 export class CreateTicketComponent implements OnInit {
   public newTicketClientName;
   public ticketAssignees;
   public ticketDescription;
   public ticketPkg;
+  public clientId;
+  public initialComment;
 
-  constructor(private ticketServiceActual: TicketItemsService) { }
+  constructor(private ticketServiceActual: TicketItemsService,
+              private dataHandler: DataHandlerService) { }
 
   ngOnInit(): void {
+    this.newTicketClientName = sessionStorage.getItem('currentClientName');
+    this.clientId = sessionStorage.getItem('currentClientId');
   }
 
   saveTicketItem(): void {
@@ -27,10 +34,10 @@ export class CreateTicketComponent implements OnInit {
         "description": this.ticketDescription,
         "ticketDate": currDate,
         "assignee": [this.ticketAssignees],
-        "clientId": "test123",
+        "clientId": this.clientId,
         "assigner": [this.newTicketClientName],
         "status": "*NEW",
-        "comments": []
+        "comments": [this.initialComment]
       }
       this.ticketPkg = savePkg;
       this.ticketServiceActual.create(this.ticketPkg).subscribe(savedTaskItem => {

@@ -1,0 +1,23 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport>
+    <mat-toolbar color="primary"><h1>Menu</h1></mat-toolbar>
+    <mat-nav-list>
+      <a href="#" mat-list-item>Account</a>
+      <a href="#" mat-list-item>About</a>
+      <a href="#" mat-list-item>Log Out</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content fxFlexFill>
+    <mat-toolbar color="primary">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <h1 style="padding-left: 20px">LGD Analytics</h1>
+    </mat-toolbar>
+    <ng-content></ng-content>
+  </mat-sidenav-content>
+</mat-sidenav-container>

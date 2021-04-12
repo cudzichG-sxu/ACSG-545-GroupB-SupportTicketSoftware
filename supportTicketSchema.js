@@ -8,7 +8,7 @@ var ticketSchema = new Schema({
     clientId: {type: String, required: true},
     assigner: {type: Array, required: true},
     status: {type: String},
-    comments: {type: Map},
+    comments: {type: Array},
 }, {collection: 'tickets'});
 
 var clientSchema = new Schema({

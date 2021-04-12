@@ -10,8 +10,8 @@ mongoose.connect('mongodb://localhost/tickets').then(() => {
 
 let ticketSchema = require('./supportTicketSchema.js').ticketSchema;
 let clientSchema = require('./supportTicketSchema.js').clientSchema;
-let ticketModel = mongoose.model('taskModel', ticketSchema);
-let clientModel = mongoose.model('timerModel', clientSchema);
+let ticketModel = mongoose.model('ticketModel', ticketSchema);
+let clientModel = mongoose.model('clientModel', clientSchema);
 const history = require('connect-history-api-fallback');
 
 
@@ -26,8 +26,6 @@ mongoose.connection.once('open', function() {
             console.log("THE DATA IS EMPTY!");
         } else {
             let details = savePkg.body.savePkg;
-            console.log(details.description);
-
             var newTicket = new ticketModel({
                 description: details.description,
                 ticketDate: details.ticketDate,

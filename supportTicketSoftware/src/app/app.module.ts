@@ -15,11 +15,14 @@ import {MatButtonModule} from "@angular/material/button";
 import { MatTableModule } from '@angular/material/table';
 import { HttpClientModule } from '@angular/common/http';
 import { CreateTicketComponent } from './create-ticket/create-ticket.component';
+import { MainNavComponent } from './main-nav/main-nav.component';
+import { LayoutModule } from '@angular/cdk/layout'
 @NgModule({
   declarations: [
     AppComponent,
     DashBoardComponent,
-    CreateTicketComponent
+    CreateTicketComponent,
+    MainNavComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +37,7 @@ import { CreateTicketComponent } from './create-ticket/create-ticket.component';
     MatTabsModule,
     HttpClientModule,
     MatButtonModule,
-    FlexLayoutModule, MatToolbarModule, MatTabsModule, MatSidenavModule, MatIconModule, MatListModule
+    FlexLayoutModule, MatToolbarModule, MatTabsModule, MatSidenavModule, MatIconModule, MatListModule, LayoutModule
   ],
   providers: [],
   bootstrap: [AppComponent]
