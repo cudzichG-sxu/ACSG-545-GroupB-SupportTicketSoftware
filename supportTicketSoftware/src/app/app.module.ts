@@ -15,10 +15,12 @@ import {MatButtonModule} from "@angular/material/button";
 import { MatTableModule } from '@angular/material/table';
 import { HttpClientModule } from '@angular/common/http';
 import { CreateTicketComponent } from './create-ticket/create-ticket.component';
+import {MainNavComponent} from "./main-nav/main-nav.component";
 @NgModule({
   declarations: [
     AppComponent,
     DashBoardComponent,
+    MainNavComponent,
     CreateTicketComponent
   ],
   imports: [

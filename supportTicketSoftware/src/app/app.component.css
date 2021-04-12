@@ -1,0 +1,14 @@
+.mat-tab-link {
+  text-decoration: none;
+  margin: auto;
+}
+
+button {
+  margin: auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: 30%;
+  height: 40px;
+  color: white;
+  background: #007bff;
+}

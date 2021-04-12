@@ -1,9 +1,13 @@
 table {
   width: 100%;
+  background: white;
+  border-radius: 20px;
+  font-family: sans-serif;
 }
 
 tr.example-detail-row {
   height: 0;
+  background: whitesmoke;
 }
 
 tr.example-element-row:not(.example-expanded-row):hover {
@@ -35,4 +39,16 @@ tr.example-element-row:not(.example-expanded-row):active {
 
 .example-element-description-attribution {
   opacity: 0.5;
+}
+
+h2 {
+  padding: 10px;
+  color: white;
+}
+
+.ticket-container {
+  margin: 0 20px 20px 20px;
+  background: #007bff;
+  border-radius: 20px;
+  padding: 5px;
 }
