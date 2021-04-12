@@ -1,7 +1,6 @@
 table {
   width: 100%;
   background: white;
-  border-radius: 20px;
   font-family: sans-serif;
 }
 
@@ -51,4 +50,16 @@ h2 {
   background: #007bff;
   border-radius: 20px;
   padding: 5px;
+}
+
+button {
+  margin: 10px auto 5px;
+  width: 20%;
+  height: 40px;
+  background: whitesmoke;
+  font-weight: bold;
+}
+
+span {
+  font-weight: bold;
 }
