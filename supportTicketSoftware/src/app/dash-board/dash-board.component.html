@@ -21,6 +21,7 @@
             <br>
             <br>
           </ng-container>
+          <input class='main1' type='text'id='Description' placeholder='Provide a brief description of your issue' [(ngModel)]="newComment" (keyup.enter)="updateComments(ticket._id)">
         </div>
       </div>
     </td>

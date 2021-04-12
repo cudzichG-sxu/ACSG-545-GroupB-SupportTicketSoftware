@@ -51,6 +51,8 @@ mongoose.connection.once('open', function() {
         }
     });
 
+
+
     app.get('/allTickets', function (req, res) {
         let clientIdActual = req.query.clientId;
         let ticketQuery = ticketModel.find({ clientId: { $eq: clientIdActual } })
@@ -80,6 +82,24 @@ mongoose.connection.once('open', function() {
                 response.send(JSON.stringify({}));
             }
         })
+    });
+
+    app.post('/submitNewTicketComment', function(request, response) {
+        var savePkg = request;
+        console.log(savePkg.body);
+
+        if (savePkg.body === undefined) {
+            console.log("THE DATA IS EMPTY!");
+        } else {
+            var updateTicketComment = ticketModel.updateOne({_id: savePkg.body._id}, {$push: {comments: savePkg.body.newComment}});
+            updateTicketComment.exec(function(err, docs) {
+                if(err) {
+                    console.log("error updating ticket comments in database" + err);
+                } else {
+                    console.log("successfully updated ticket comments in database");
+                }
+            })
+        }
     });
 
     app.get('/allClients', function (req, res) {
