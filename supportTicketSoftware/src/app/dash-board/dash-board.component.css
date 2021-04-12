@@ -63,3 +63,9 @@ button {
 span {
   font-weight: bold;
 }
+
+.main1 {
+  width: 200%;
+  height: 40px;
+  padding-left: 10px;
+}

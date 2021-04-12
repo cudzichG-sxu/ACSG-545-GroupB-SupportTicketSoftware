@@ -1,39 +1,40 @@
-<div>
-  <h3>Green Garden LLC.</h3>
-</div>
-<table mat-table [dataSource]="ticketData" multiTemplateDataRows
-       class="mat-elevation-z8">
-  <ng-container matColumnDef="{{column}}" *ngFor="let column of columnsToDisplay">
-    <th mat-header-cell *matHeaderCellDef> {{column}} </th>
-    <td mat-cell *matCellDef="let ticket"> {{ticket[column]}} </td>
-  </ng-container>
+<div class="ticket-container">
+  <div>
+    <h2>Green Garden LLC.</h2>
+  </div>
+  <table mat-table [dataSource]="ticketData" multiTemplateDataRows
+         class="mat-elevation-z8">
+    <ng-container matColumnDef="{{column}}" *ngFor="let column of columnsToDisplay">
+      <th mat-header-cell *matHeaderCellDef> {{column}} </th>
+      <td mat-cell *matCellDef="let ticket"> {{ticket[column]}} </td>
+    </ng-container>
 
-  <!-- Expanded Content Column - The detail row is made up of this one column that spans across all columns -->
-  <ng-container matColumnDef="expandedDetail">
-    <td mat-cell *matCellDef="let ticket" [attr.colspan]="columnsToDisplay.length">
-      <div class="example-element-detail"
-           [@detailExpand]="ticket == expandedElement ? 'expanded' : 'collapsed'">
-        <div class="example-element-description">
-          <span>Comments: </span>
-          <br>
-          <ng-container *ngFor="let comment of ticket.comments">
-            {{comment}}
+    <!-- Expanded Content Column - The detail row is made up of this one column that spans across all columns -->
+    <ng-container matColumnDef="expandedDetail">
+      <td mat-cell *matCellDef="let ticket" [attr.colspan]="columnsToDisplay.length">
+        <div class="example-element-detail"
+             [@detailExpand]="ticket == expandedElement ? 'expanded' : 'collapsed'">
+          <div class="example-element-description">
+            <span>Comments: </span>
             <br>
-            <br>
-          </ng-container>
-          <input class='main1' type='text'id='Description' placeholder='Provide a brief description of your issue' [(ngModel)]="newComment" (keyup.enter)="updateComments(ticket._id)">
+            <ng-container *ngFor="let comment of ticket.comments">
+              {{comment}}
+              <br>
+              <br>
+            </ng-container>
+            <input class='main1' type='text'id='Description' placeholder='Add a comment here' [(ngModel)]="newComment" (keyup.enter)="updateComments(ticket._id)">
+          </div>
         </div>
-      </div>
-    </td>
-  </ng-container>
+      </td>
+    </ng-container>
 
-    <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
-    <tr mat-row *matRowDef="let tickets; columns: columnsToDisplay;"
-        class="example-element-row"
-        [class.example-expanded-row]="expandedElement === tickets"
-        (click)="expandedElement = expandedElement === tickets ? null : tickets">
-    </tr>
-    <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row"></tr>
+      <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+      <tr mat-row *matRowDef="let tickets; columns: columnsToDisplay;"
+          class="example-element-row"
+          [class.example-expanded-row]="expandedElement === tickets"
+          (click)="expandedElement = expandedElement === tickets ? null : tickets">
+      </tr>
+      <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row"></tr>
   </table>
   <div>
       <button mat-raised-button (click)="goToPage('create-ticket')" >New Ticket</button>
