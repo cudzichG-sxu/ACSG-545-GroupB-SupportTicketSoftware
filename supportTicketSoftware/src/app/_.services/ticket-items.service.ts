@@ -21,6 +21,10 @@ export class TicketItemsService {
     return this.http.post<any>(`${environment.apiUrl}/submitNewTicket`, {savePkg: newTicketItem});
   }
 
+  updateComments(newComment, ticketId): Observable<any> {
+    return this.http.post<any>(`${environment.apiUrl}/submitNewTicketComment`, {newComment: newComment, _id: ticketId});
+  }
+
   delete( ticketToBeDeleted ): Observable<any> {
     return this.http.delete<any>(`${environment.apiUrl}/deleteTicket/?id=${ticketToBeDeleted}`, {});
   }

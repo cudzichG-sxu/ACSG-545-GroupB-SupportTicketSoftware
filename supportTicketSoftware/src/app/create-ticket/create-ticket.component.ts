@@ -2,12 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import {TicketItemsService} from '../_.services/ticket-items.service';
 import {formatDate} from '@angular/common';
 import {DataHandlerService} from '../_.services/data-handler.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-create-ticket',
   templateUrl: './create-ticket.component.html',
   styleUrls: ['./create-ticket.component.css']
 })
+
 
 export class CreateTicketComponent implements OnInit {
   public newTicketClientName;
@@ -18,10 +20,11 @@ export class CreateTicketComponent implements OnInit {
   public initialComment;
 
   constructor(private ticketServiceActual: TicketItemsService,
-              private dataHandler: DataHandlerService) { }
+              private dataHandler: DataHandlerService,
+              private router: Router) { }
 
   ngOnInit(): void {
-    this.newTicketClientName = sessionStorage.getItem('currentClientName');
+    this.newTicketClientName = sessionStorage.getItem('currentClientName') || "Green Garden LLC.";
     this.clientId = sessionStorage.getItem('currentClientId');
   }
 
@@ -43,6 +46,7 @@ export class CreateTicketComponent implements OnInit {
       this.ticketServiceActual.create(this.ticketPkg).subscribe(savedTaskItem => {
 
         this.ticketPkg = [];
+        this.router.navigate([`dash-board`]);
       });
     }
   }

@@ -7,6 +7,7 @@ var ticketSchema = new Schema({
     assignee: {type: Array, required: true},
     clientId: {type: String, required: true},
     assigner: {type: Array, required: true},
+    priority: {type: String},
     status: {type: String},
     comments: {type: Array},
 }, {collection: 'tickets'});

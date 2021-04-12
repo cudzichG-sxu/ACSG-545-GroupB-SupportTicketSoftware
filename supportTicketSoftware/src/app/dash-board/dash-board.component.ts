@@ -19,7 +19,7 @@ import {DataHandlerService} from '../_.services/data-handler.service';
 })
 
 export class DashBoardComponent implements OnInit {
-  columnsToDisplay = ['description', 'assignee', 'ticketDate', 'status'];
+  columnsToDisplay = ['description', 'assignee', 'ticketDate', 'status', 'priority'];
   public ticketData;
  expandedElement: ticketObject | null;
 
@@ -29,6 +29,7 @@ export class DashBoardComponent implements OnInit {
  public ticketPkg;
  public newClientItem;
  public returnedClients;
+ public newComment;
   constructor(private ticketServiceActual: TicketItemsService,
               private clientServiceActual: ClientItemsService,
               private router: Router,
@@ -44,7 +45,6 @@ export class DashBoardComponent implements OnInit {
     // //returns tickets based on clientId, so that ONLY tickets that the client returned are pulled.
     this.clientId = "test123";
     this.ticketServiceActual.getAllTickets(this.clientId).subscribe(returnedTickets => {
-      console.log(returnedTickets);
       this.ticketData = returnedTickets;
 
     });
@@ -67,6 +67,21 @@ export class DashBoardComponent implements OnInit {
         this.ticketData.splice(index, 1);
       }
     });
+  }
+
+  updateComments(index): void {
+    // tslint:disable-next-line:no-shadowed-variable
+    if(this.newComment == "") {
+      console.log("EMPTY COMMENT!")
+    } else {
+      this.ticketServiceActual.updateComments(this.newComment, index).subscribe( ticketMarkedForUpdate => {
+        this.newComment = '';
+        this.clientId = "test123";
+        this.ticketServiceActual.getAllTickets(this.clientId).subscribe(returnedTickets => {
+          this.ticketData = returnedTickets;
+        });
+      })
+    }
   }
 
 //might add these later, due to time constraints, cannot add these in now.
@@ -95,5 +110,6 @@ export interface ticketObject {
   assignee: string;
   ticketDate: string;
   status: string;
+  priority: string;
   comments: [];
 }
