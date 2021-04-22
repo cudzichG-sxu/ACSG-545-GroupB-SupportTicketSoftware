@@ -1,9 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ElementRef, ViewChild} from '@angular/core';
 import {TicketItemsService} from '../_.services/ticket-items.service';
 import {ClientItemsService} from '../_.services/client-items.service';
 import { Router } from '@angular/router';
 import {animate, state, style, transition, trigger} from '@angular/animations';
 import {DataHandlerService} from '../_.services/data-handler.service';
+// @ts-ignore
+import {MatTable} from '@angular/material';
 
 @Component({
   selector: 'app-dash-board',
@@ -22,7 +24,8 @@ export class DashBoardComponent implements OnInit {
   columnsToDisplay = ['description', 'assignee', 'ticketDate', 'status'];
   public ticketData;
  expandedElement: ticketObject | null;
-
+  @ViewChild('Description') Description: ElementRef;
+  @ViewChild('table') table: MatTable<Element>;
 
  public clientId;
  //save pkg for tickets, must include: description, ticketDate, assignee, clientId, assigner, status, comments
@@ -77,12 +80,14 @@ export class DashBoardComponent implements OnInit {
       console.log("EMPTY COMMENT!")
     } else {
       this.ticketServiceActual.updateComments(this.newComment, index).subscribe( ticketMarkedForUpdate => {
-        this.newComment = '';
-        this.clientId = "test123";
-        this.ticketServiceActual.getAllTickets(this.clientId).subscribe(returnedTickets => {
-          this.ticketData = returnedTickets;
-        });
       })
+      this.clientId = "test123"
+      this.ticketServiceActual.getAllTickets(this.clientId).subscribe(returnedTickets => {
+        this.ticketData = returnedTickets;
+        this.table.renderRows();
+      });
+      this.newComment = '';
+      this.Description.nativeElement.value = '';
     }
   }
 
